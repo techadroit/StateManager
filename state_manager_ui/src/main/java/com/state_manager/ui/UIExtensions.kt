@@ -1,4 +1,4 @@
-package com.grid.statemanager.ui
+package com.state_manager.ui
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState

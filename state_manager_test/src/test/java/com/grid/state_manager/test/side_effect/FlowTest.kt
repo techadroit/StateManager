@@ -1,6 +1,7 @@
 package com.grid.state_manager.test.side_effect
 
 import com.grid.state_manager.test.BaseUnitTest
+import com.state_manager.test.util.TestStateManagerScope
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.test.runTest
@@ -9,7 +10,7 @@ import org.junit.Test
 
 class FlowTest : BaseUnitTest() {
 
-    val testManager = com.grid.state_manager.test.util.TestStateManagerScope()
+    val testManager = TestStateManagerScope()
 
     val channel = Channel<Int>(capacity = Channel.UNLIMITED)
 

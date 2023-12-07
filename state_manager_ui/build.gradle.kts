@@ -1,10 +1,10 @@
 plugins {
-    id("com.android.library")
-    id("org.jetbrains.kotlin.android")
+    alias(libs.plugins.androidLibrary)
+    alias(libs.plugins.kotlinAndroid)
 }
 
 android {
-    namespace = "com.grid.statemanager.ui"
+    namespace = "com.state_manager.ui"
     compileSdk = 33
 
     defaultConfig {
@@ -34,7 +34,7 @@ android {
         compose  = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.4"
+        kotlinCompilerExtensionVersion = libs.versions.composeVersion.toString()
     }
 }
 
@@ -42,7 +42,6 @@ dependencies {
 
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.1")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.1")
-    implementation(project(mapOf("path" to ":state_manager")))
     val composeBom = platform("androidx.compose:compose-bom:2023.10.01")
     implementation(composeBom)
     androidTestImplementation(composeBom)
@@ -54,5 +53,5 @@ dependencies {
     // Android Studio Preview support
     implementation("androidx.compose.ui:ui-tooling-preview")
     debugImplementation("androidx.compose.ui:ui-tooling")
-    implementation(":state_manager")
+    implementation(project(":state_manager"))
 }

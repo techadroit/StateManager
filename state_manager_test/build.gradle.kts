@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace = "com.grid.state_manager.test"
+    namespace = "com.state_manager.test"
     compileSdk = 33
 
     defaultConfig {
@@ -34,8 +34,9 @@ android {
 }
 
 dependencies {
-
-    implementation(project(mapOf("path" to ":state_manager")))
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0")
+    implementation("androidx.lifecycle:lifecycle-extensions:2.2.0")
+    implementation(project(":state_manager"))
     implementation(libs.bundles.coroutines)
     implementation(libs.core.ktx)
     implementation(libs.appcompat)

@@ -1,7 +1,7 @@
 package com.grid.state_manager.test.viewmodel_test
 
 import com.grid.state_manager.test.BaseUnitTest
-import com.grid.state_manager.test.util.TestStateManagerScope
+import com.state_manager.test.util.TestStateManagerScope
 import com.state_manager.events.EventHolder
 import com.state_manager.events.EventHolderImpl
 import com.state_manager.logger.systemOutLogger

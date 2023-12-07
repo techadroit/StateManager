@@ -1,4 +1,4 @@
-package com.grid.state_manager.test.rule
+package com.state_manager.test.rule
 
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.test.TestDispatcher

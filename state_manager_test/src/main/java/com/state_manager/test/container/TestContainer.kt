@@ -1,7 +1,7 @@
-package com.grid.state_manager.test.container
+package com.state_manager.test.container
 
 import com.state_manager.events.AppEvent
-import com.grid.state_manager.test.util.runCreate
+import com.state_manager.test.util.runCreate
 import com.state_manager.managers.Manager
 import com.state_manager.side_effects.SideEffect
 import com.state_manager.state.AppState

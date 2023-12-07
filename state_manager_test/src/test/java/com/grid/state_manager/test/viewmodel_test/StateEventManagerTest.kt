@@ -1,10 +1,12 @@
 package com.grid.state_manager.test.viewmodel_test
 
 import com.grid.state_manager.test.BaseUnitTest
-import com.grid.state_manager.test.util.createTestContainer
-import com.grid.state_manager.test.container.expect
-import com.grid.state_manager.test.container.expectNotEmpty
-import com.grid.state_manager.test.container.test
+import com.state_manager.test.util.createTestContainer
+import com.state_manager.test.container.expect
+import com.state_manager.test.container.expectNotEmpty
+import com.state_manager.test.container.test
+import com.state_manager.test.rule.StateManagerTestRule
+import com.state_manager.test.util.TestStateManagerScope
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import org.junit.Before
 import org.junit.Rule
@@ -13,9 +15,9 @@ import org.junit.Test
 internal class StateEventManagerTest : BaseUnitTest() {
     lateinit var viewModel: TestViewModel
     private val initialState = TestState()
-    private val testStateManagerScope = com.grid.state_manager.test.util.TestStateManagerScope()
+    private val testStateManagerScope = TestStateManagerScope()
     @get:Rule
-    val rule = com.grid.state_manager.test.rule.StateManagerTestRule()
+    val rule = StateManagerTestRule()
 
     @ExperimentalCoroutinesApi
     @Before

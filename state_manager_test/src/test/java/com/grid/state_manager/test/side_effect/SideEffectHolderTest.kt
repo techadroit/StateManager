@@ -3,6 +3,7 @@ package com.grid.state_manager.test.side_effect
 import com.grid.state_manager.test.BaseUnitTest
 import com.state_manager.logger.SystemOutLogger
 import com.state_manager.side_effects.SideEffectHolderImpl
+import com.state_manager.test.util.TestStateManagerScope
 import junit.framework.TestCase.assertEquals
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.test.runTest
@@ -10,7 +11,7 @@ import org.junit.Test
 
 class SideEffectHolderTest : BaseUnitTest() {
 
-    val testManagerScope = com.grid.state_manager.test.util.TestStateManagerScope()
+    val testManagerScope = TestStateManagerScope()
     val holder =
         SideEffectHolderImpl<TestSideEffects>(SystemOutLogger(""), testManagerScope.getScope())
 

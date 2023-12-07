@@ -1,20 +1,20 @@
 plugins {
-    id("com.android.library")
-    id("kotlin-android")
+    alias(libs.plugins.androidLibrary)
+    alias(libs.plugins.kotlinAndroid)
 //    kotlin("kapt")
 }
 
 android {
 
-    val minSdkVersion = 24
+    val minSdkVersion = 33//rootProject.ext.minSdk
     val targetSdkVersion = 33
     val compileSdkVersion = 33
-    val buildToolVersion = "30.0.3"
+//    val buildToolVersion = "30.0.3"
 
     namespace = "com.state_manager"
 
     compileSdk = compileSdkVersion
-    buildToolsVersion = buildToolVersion
+//    buildToolsVersion = buildToolVersion
 
     defaultConfig {
         version = "0.0.1"

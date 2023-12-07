@@ -1,4 +1,4 @@
-package com.grid.state_manager.test.util
+package com.state_manager.test.util
 
 import com.state_manager.scopes.StateManagerCoroutineScope
 import kotlinx.coroutines.CoroutineScope
