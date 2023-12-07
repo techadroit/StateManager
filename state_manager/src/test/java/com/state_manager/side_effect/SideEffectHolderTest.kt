@@ -33,4 +33,35 @@ class SideEffectHolderTest : BaseUnitTest() {
             list.clear()
         }
     }
+
+    @Test
+    fun `test side effect emitted multiple times`(){
+        runTest {
+            val list = mutableListOf<TestSideEffects?>()
+            backgroundScope.launch(testManagerScope.testDispatcher) {
+                holder.effectObservable.collect {
+                    list.add(it)
+                }
+            }
+            holder.post(ShowToast)
+            holder.post(ShowToast)
+            assertEquals("Value is ",2,list.size)
+        }
+    }
+
+    @Test
+    fun `test side effects are not cached`(){
+        runTest {
+            val list = mutableListOf<TestSideEffects?>()
+            holder.post(ShowToast)
+            holder.post(ShowToast)
+
+            backgroundScope.launch(testManagerScope.testDispatcher) {
+                holder.effectObservable.collect {
+                    list.add(it)
+                }
+            }
+            assertEquals("Size is ",0,list.size)
+        }
+    }
 }
