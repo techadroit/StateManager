@@ -16,7 +16,7 @@ import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.selects.select
 
-internal class SingleChannelProcessor<S : AppState, E : AppEvent, SIDE_EFFECT : SideEffect>(
+ class SingleChannelProcessor<S : AppState, E : AppEvent, SIDE_EFFECT : SideEffect>(
     shouldStartImmediately: Boolean = false,
     private val stateHolder: StateHolder<S>,
     private val eventHolder: EventHolder<E>,

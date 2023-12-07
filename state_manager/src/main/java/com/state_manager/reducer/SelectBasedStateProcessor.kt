@@ -1,5 +1,6 @@
 package com.state_manager.reducer
 
+import androidx.annotation.VisibleForTesting
 import com.state_manager.events.AppEvent
 import com.state_manager.events.EventHolder
 import com.state_manager.state.AppState
@@ -32,7 +33,7 @@ import kotlin.coroutines.CoroutineContext
  * @param logger a [Logger] to log miscellaneous information
  * @param coroutineContext The [CoroutineContext] under which this processor will execute jobs sent to it
  */
-internal class SelectBasedStateProcessor<S : AppState, E : AppEvent,SIDE_EFFECT : SideEffect>(
+ class SelectBasedStateProcessor<S : AppState, E : AppEvent,SIDE_EFFECT : SideEffect>(
     shouldStartImmediately: Boolean = false,
     private val stateHolder: StateHolder<S>,
     private val eventHolder: EventHolder<E>,
@@ -126,7 +127,8 @@ internal class SelectBasedStateProcessor<S : AppState, E : AppEvent,SIDE_EFFECT 
      *
      * Jobs are processed continuously until the [processorScope] is cancelled using [clearProcessor]
      */
-    internal fun start() = processorScope.launch {
+    @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
+    fun start() = processorScope.launch {
         while (isActive) {
             selectJob()
         }

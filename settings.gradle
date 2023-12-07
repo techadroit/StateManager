@@ -17,3 +17,4 @@ rootProject.name = "State Manager"
 include ':app'
 include ':state_manager'
 include ':state_manager_ui'
+include ':state_manager_test'
